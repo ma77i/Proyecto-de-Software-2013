@@ -87,6 +87,7 @@ class adminController extends Controller {
                 $this->admin->editarCliente($this->getTexto('nombre'), $this->getTexto('apellido'), $this->getTexto("correo"), $this->getTexto("domicilio"), $this->getTexto('rsocial'), $this->getTexto('cuit'), $id,$this->getTexto('condimpositiva'));
                 $this->_view->parametrosVista['mensaje'] = "Sus datos han sido modificados";
                 $this->redireccionar('admin/clientes');
+                echo "probando commit";
                 exit;
             }
 
