@@ -1,0 +1,126 @@
+{# empty Twig template #}
+<p>Estadisticas: 
+      <select id="opcion">
+       
+          <option value="1" selected>Ventas Generales de Especies</option>
+          <option value="2">Ventas Historicas para un mes </option>
+          <option value="3">Especie mas o menos vendida por mes de un año determinado</option>
+          <option value="4">Clientes y sus compras ordenado por los que mas compraron por especie</option>
+          <option value="5">Ver Mapa </option>
+     </select>
+
+
+<div id="contenedorA" >
+  <div id="contenedor2" class="contStats"></div><br>
+  
+<input type="checkbox" id="check1" name="checkVentasGenerales"/> <label>Ventas Generales Entre fechas: </label>
+  
+<div id="entreFechas">  
+  <p>Ventas entre: <input id="ventas1" class="datepicker"/> y  <input id="ventas2" class="datepicker"/><input type="button" class="button" value="Quitar Filtro" id="resetEst"/> <p><br><br>
+ 
+</div>  
+<p>
+
+<input type="checkbox" id="check2" name="checkVentasGenerales"/> <label>Ventas Generales de Socios: </label>
+
+
+<div id="entreFechas2">  
+  <p>Ventas entre: <input id="ventas3" class="datepicker"/> y  <input id="ventas4" class="datepicker"/><p><br><br>
+ 
+
+  <p> <label>Filtrar ventas por socio:</label>   
+                <SELECT  id="combosocios" name="combosocios" SIZE=1 > 
+                  
+                         {%for s in parametros.listadosocios%}  
+                    <option value="{{s.idsocio}}"> 
+
+                          {{s.usuario}}
+                    </option>
+                         {%endfor%}     
+
+                </SELECT>   
+      
+      <input type="button" class="button" value="Filtrar" id="seleccionSocio"/>
+      
+  </p> 
+</div>     
+      
+</div>  
+  
+<div id="contenedorB">  
+  <p>Ventas historicas para el mes: 
+      <select id="mes">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select> 
+      <input type="button" class="button" value="Filtrar" id="filtMes"/>
+  <p>   
+ <div id="contenedor3" class="contStats"></div>
+<br>
+<br>
+</div>
+
+
+<div id="contenedorC">
+<label>Ingrese Mes:</label>
+<select id="m">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+<label>Ingrese Año:</label>
+<select id="ano">
+    <option value="0" >Seleccione un año</option>
+        <option value="2007">2007</option>
+        <option value="2008">2008</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+</select>
+<input type="button" class="button" value="Filtrar por mes y año" id="filtrarMes"/>
+<p></p>
+<div id="contenedor4" class="contStats"></div>     
+
+</div>
+
+
+<div id="contenedorD">
+<p></p>
+<input type="button" class="button" value="Ver Compras de clientes" id="filtrarCompras"/>
+<p></p>
+<div id="contenedor5" class="contStats"></div>  
+
+</div>
+<p></p>
+
+<div id="contenedorE">
+<input type="button" class="button" value="Ver Mapa" id="verMapa"/> 
+
+<p></p>
+
+<div id="estMaps" class="contStats">
+    
+</div>
+
+</div>

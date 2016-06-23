@@ -1,0 +1,84 @@
+{% if tipoperfil is defined %}
+    {% if tipoperfil == "administrador"   %}
+        <div id='cssmenu'>
+            <ul>
+                {% if seccionActual is defined and seccionActual !="clientes"  and seccionActual !="altacliente"%}     
+                      <li class='active'><a href="{{home}}admin/clientes"><span> Clientes</span></a></li>
+                {% endif %} 
+                {% if seccionActual is defined and seccionActual !="especies"%}     
+                <li><a href="{{home}}admin/especies"><span>Especies</span></a></li>
+                {%endif %}
+                
+                {% if seccionActual is defined and seccionActual !="socios" %}     
+                      <li><a href="{{home}}admin/socios"><span>Socios</span></a></li>
+                 {% endif %} 
+                {% if seccionActual is defined and seccionActual !="inquilinos" %}     
+
+                      <li><a href="{{home}}admin/inquilinos"><span>Inquilinos</span></a></li>
+                {% endif %}
+                      
+                 {%if  seccionActual is defined and seccionActual !="asignarventa" %}    
+                      <li class='active'><a href="{{home}}venta/asignarventa"><span>Ventas</span></a></li>
+                {%endif%}       
+                  
+                      <li class='active'><a href="{{home}}estadistica"><span>Estadisticas</span></a></li>
+                 
+                      
+                      
+                {% if seccionActual !="admin" and (seccionActual =="clientes" or seccionActual =="socios" or seccionActual =="inquilinos" or seccionActual =="especies") %}
+                <li><a href="{{home}}admin"><span>Volver</span></a></li>
+                {% endif %}
+                {% if seccionActual =="altacliente" or seccionActual =="editarcliente"%}
+                <li><a href="{{home}}admin/clientes"><span>Volver</span></a></li>
+                {% endif %}
+                 {% if seccionActual =="altainquilino" or seccionActual =="editarinquilino"%}
+                <li><a href="{{home}}admin/inquilinos"><span>Volver</span></a></li>
+                {% endif %}
+                 {% if seccionActual =="altasocio" or seccionActual =="editarsocio"%}
+                <li><a href="{{home}}admin/socios"><span>Volver</span></a></li>
+                {% endif %}
+                 {% if seccionActual =="altaespecie" or seccionActual =="editarespecie"%}
+                <li><a href="{{home}}admin/especies"><span>Volver</span></a></li>
+                {% endif %}
+
+
+
+
+            </ul>
+        </div>
+    {%endif%} 
+    {% if tipoperfil=="inquilino" or tipoperfil=="socio" or tipoperfil=="ayudante" %}
+        <div id='cssmenu'>
+            <ul>
+            {% if seccionActual is defined and seccionActual !="ingreso" %}     
+              <li class='active'><a href="{{home}}ingreso"><span>Ingreso</span></a></li>
+            {%endif%}   
+             {%if  seccionActual !="venta" and tipoperfil!="ayudante"%}    
+                <li class='active'><a href="{{home}}venta"><span>Ventas</span></a></li>
+            {%endif%} 
+            {% if seccionActual != "datospersonales" %}
+              {% if tipoperfil=="inquilino" %} 
+                    <li><a href="{{home}}inquilino/editarinquilino"><span>Editar datos personales</span></a></li>
+                    {% if seccionActual !="inquilino"%}
+                    <li><a href="{{home}}inquilino"><span>Volver</span></a></li>
+                    {%endif%}  
+              {%endif%}  
+              {% if tipoperfil=="socio" %}
+                    <li><a href="{{home}}socio/editarsocio"><span>Editar datos personales</span></a></li>
+                    {% if seccionActual !="socio"%}
+                    <li><a href="{{home}}socio"><span>Volver</span></a></li>
+                    {%endif%}  
+              {%endif%}
+              {% if tipoperfil=="ayudante" %}
+                    <li><a href="{{home}}ayudante/editarayudante"><span>Editar datos personales</span></a></li>
+                    {% if seccionActual !="ayudante"%}
+                    <li><a href="{{home}}ayudante"><span>Volver</span></a></li>
+                    {%endif%}  
+              {%endif%}
+            {%endif%}
+                        
+            </ul>
+        </div>
+    {%endif%}
+{%endif%}  
+  

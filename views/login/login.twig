@@ -1,0 +1,27 @@
+
+            <div class="body-contain">
+                <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+                <fieldset>
+                    <legend>INICIO DE SESION</legend> 
+
+                    <!--                <fieldset>/* legend define un título para el elemento fieldset>.*/-->
+                    <form name="formularioLogin" id="formu" method="POST"> 
+                      <input type="hidden" value="2" name="enviar" />
+                        <p> <input class="login"  required="required" type="text" placeholder="Ingrese su usuario" name="Usuario" id="user" value=""/> </p>
+
+                        <p>
+                        <p><input class="login" required="required" type="password" placeholder="Ingrese su contraseña" name="Password" id="password" value=""/> </p>
+
+                        <p>
+                            <input type="hidden" name="envio" value="1"/>
+
+                            <input class="button" type="submit" name="entrar" value="Entrar" />
+                    </form>
+                   
+                    {%if parametros.mensaje is defined%}
+                    <div style="color: blue">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+                   
+                </fieldset>
+            </div>
+ 

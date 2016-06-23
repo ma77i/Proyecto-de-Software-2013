@@ -1,0 +1,62 @@
+{# empty Twig template #}
+{# empty Twig template #}
+<div class="body-contain">
+    <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+    <fieldset>
+        <legend>Editar Especie</legend>
+
+        <form name="formeditar"  method="POST"> 
+            <input type="hidden" value="1" name="guardar" />
+            <p> <label>Planta:</label> <input type="text" name="nombre"  id="nombre" value="{{parametros.datosespecie.planta}}"/> </p>
+
+
+
+            <p><label> Nombre Cientifico:</label> <input type="text" name="nombrec" id="nombrecientifico" value="{{parametros.datosespecie.nombrecientifico}}"/> </p>
+
+            <p><label> Habitat:</label> <input type="text" name="habitat" id="habitat" value="{{parametros.datosespecie.habitat}}"/> </p>
+
+
+            <p> <label>Tipo de especie:</label>   
+                <SELECT  id="comboespecies" name="comboespecies" SIZE=1 > 
+                  
+                         {%for e in parametros.especies%}  
+                    <option value="{{e.idespecie}}" {% if e.idespecie == parametros.datosespecie.idespecie %} selected="selected" {% endif %}> 
+
+                          {{e.nombre}}
+                    </option>
+                         {%endfor%}     
+
+                </SELECT> </p>
+
+            <p><label> Region:</label> <input type="text"    name="region"  id="region" value="{{parametros.datosespecie.region}}"/> </p>
+
+            <p><label>Epoca:</label> <input type="text"  name="epoca"  id="epoca" value="{{parametros.datosespecie.epocaaño}}"  /> </p>
+            <p> <label> Color:</label>  
+                <SELECT  id="combocolores" name="combocolores" SIZE=1 > 
+                    <option value="0">Seleccione una opcion</option>
+                         {%for c in parametros.colores%}  
+                    <option value="{{c.idcolor}}"{% if c.idcolor == parametros.datosespecie.idcolor%} selected="selected" {% endif %}> 
+
+                          {{c.color}}
+                    </option>
+                         {%endfor%}     
+
+                </SELECT> </p>
+
+
+
+
+
+            <button type="submit"  > Guardar Cambios</button>
+            <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}admin/especies'"/>       
+
+
+
+        </form>   
+
+                  {%if parametros.mensaje is defined%}
+        <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+
+    </fieldset>
+</div>

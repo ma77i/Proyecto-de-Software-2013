@@ -1,0 +1,58 @@
+{# empty Twig template #}
+{# empty Twig template #}
+ <noscript><p>Para el correcto funcionamiento debe tener el soporte de javascript habilitado</p></noscript>
+
+    <table>
+
+         {% if logueado is defined and logueado=="autenticado"%}              
+           {% if tipoperfil is defined and tipoperfil== "administrador" %}    
+  <thead>
+        <tr>
+            <th colspan="10"> LISTADO DE SOCIOS </th>
+        </tr>
+
+        <tr>
+       
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Usuario</td>
+            <td>Mail</td>
+            <td>Direccion </td>
+            <td>Razon social</td>
+            <td>Cuit </td>
+            <td>Perfil </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+</thead>
+<tbody>
+                 {% for socio in parametros.listadosocios  %}  
+        <tr>
+            <td> {{ socio.nombre}}</td>
+            <td> {{ socio.apellido}}</td>
+            <td> {{ socio.usuario}}</td>
+            <td> {{ socio.mail}}</td>
+            <td> {{ socio.direccion}}</td>
+            <td> {{ socio.razonsocial}}</td>
+            <td> {{ socio.cuit}}</td>
+            <td> {{ socio.perfil}}</td>
+            <td> <a href="editarsocio/{{socio.idsocio}}"><img title="editar socio" src="{{ruta_img~"editar.png"}}" alt=""/></a></td>
+          
+            <td> <a href="eliminarsocio/{{socio.idsocio}}"><img title="eliminar socio" src="{{ruta_img~"eliminar.png"}}" alt=""/></a> </td>
+
+        </tr>
+           {% endfor %}     
+</tbody>
+    </table>
+     
+ 
+    <a href="altasocio">
+        <img  id="imagenadd" title="Agregar socio" src="{{ruta_img~"add.png"}}" alt=""/>
+      </a>  
+            {%endif %}    
+    {%endif %} 
+   
+      
+    
+              
+

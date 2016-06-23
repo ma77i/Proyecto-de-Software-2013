@@ -1,0 +1,27 @@
+<h3>LISTADO DE SOCIOS/INQUILINOS</h3>
+
+<table>
+
+    <thead>
+        <tr>
+            <td>Usuario</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Perfil </td>
+            <td> </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in parametros.listadosociosinquilinos  %}  
+        <tr>
+            <td> {{ usuario.usuario}}</td>
+            <td> {{ usuario.nombre}}</td>
+            <td> {{ usuario.apellido}}</td>
+            <td> {{ usuario.perfil}}</td>
+            <td><button id="{{'botonAsignarVenta'~loop.index}}" name="{{'botonAsignarVenta'~loop.index}}" class="botonAsignarVenta" onclick="window.location.href='{{home}}venta/index/{{usuario.idusuario}}/{{usuario.perfil}}';">ASIGNAR VENTA</button></td>
+        </tr>
+        {% endfor %}     
+    </tbody>
+    
+</table>   
+    

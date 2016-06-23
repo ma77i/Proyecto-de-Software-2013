@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{siteName}}</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        {#  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>#}
+        
+        
+        <link rel="stylesheet" href="{{ruta_css~"jquery-ui-1.10.3.custom.css"}}"/>
+        <link rel="stylesheet" href="{{ruta_css~"jquery-ui-1.10.3.custom.min.css"}}"/>
+        <script type="text/javascript" src="{{ruta_js~"jquery-1.9.1.js"}}"></script> 
+        <script type="text/javascript" src="{{ruta_js~"jquery-ui-1.10.3.custom.js"}}"></script> 
+        <script type="text/javascript" src="{{ruta_js~"jquery-ui-1.10.3.custom.min.js"}}"></script> 
+
+
+        <script type="text/javascript" src="{{ruta_js~"jquery.validate.js"}}"></script>
+        <script type="text/javascript" src="{{ruta_js~"highcharts.js"}}"></script>
+        <script type="text/javascript" src="{{ruta_js~"modules/exporting.js"}}"></script>
+        <script  type="text/javascript" src="{{ruta_js~"funcionesJS.js"}}" ></script>
+        <link href="{{ruta_css~estilo}}" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArr0fBg4AONUOU3UaOhp_DDN8_r-EV4LQ&amp;sensor=false&amp;region=AR"></script>
+        <script type="text/javascript" src="{{ruta_js~"map.js"}}"></script>                                                                                   
+
+    </head>
+
+    <body>
+
+        <div id="main">
+            <div id="header">
+
+                <nav>
+                    <ul> 
+                            {% if logueado is defined and logueado=="autenticado"%}  
+                        <li><a href="{{home~"logout"}}"><strong>Cerrar sesion </strong></a></li>
+                            {% elseif seccionActual != "login" %}     
+                        <li><a href="login"><strong>Iniciar sesion </strong></a></li>
+                            {%endif %}
+
+                    </ul>
+
+
+
+                    <div id="logo">
+                        <h1>{{siteName}}</h1>
+                    </div>
+
+                </nav>
+            </div>
+
+
+            <div id="container">
+                <div id="content">

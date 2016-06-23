@@ -1,0 +1,54 @@
+{# empty Twig template #}
+<noscript><p>Para el correcto funcionamiento debe tener el soporte de javascript habilitado</p></noscript>
+
+    <table>
+
+         {% if logueado is defined and logueado=="autenticado"%}              
+           {% if tipoperfil is defined and tipoperfil== "administrador" %}    
+  <thead>
+        <tr>
+            <th colspan=9> LISTADO DE ESPECIES </th>
+        </tr>
+
+        <tr>
+       
+            <td>Planta</td>
+            <td>Especie</td>
+            <td>Nombre Cientifico</td>
+            <td>Habitat</td>
+            <td>Region</td>
+            <td>Epoca</td>
+            <td>Color</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+</thead>
+<tbody>
+         {% for especie in parametros.listadoespecies  %}  
+        <tr>
+            <td> {{  especie.planta}}</td>
+            <td> {{  especie.especie}}</td>
+            <td> {{  especie.nombrecientifico}}</td>
+            <td> {{  especie.habitat}}</td>
+            <td> {{  especie.region}}</td>
+            <td> {{  especie.epocaaño}}</td>
+            <td> {{  especie.color}}</td>
+            <td> <a href="editarespecie/{{especie.idplanta}}"><img title="editar especie" src="{{ruta_img~"editar.png"}}" alt=""/></a></td>
+          
+            <td> <a href="eliminarespecie/{{especie.idplanta}}"><img title="eliminar especie" src="{{ruta_img~"eliminar.png"}}" alt=""/></a> </td>
+
+        </tr>
+           {% endfor %}     
+</tbody>
+    </table>
+     
+ 
+    <a href="altaespecie">
+        <img  id="imagenadd" title="Agregar especie" src="{{ruta_img~"add.png"}}" alt=""/>
+      </a>  
+            {%endif %}    
+    {%endif %} 
+   
+      
+    
+              

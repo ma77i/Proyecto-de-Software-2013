@@ -1,0 +1,49 @@
+<h3>MERCADERIA</h3>
+
+<table id="tablaVenta">
+
+    <thead>
+        <tr>
+
+            <td>Flor</td>
+            <td>Color</td>
+            <td>Especie</td>
+            <td>Stock</td>
+            <td>Monto </td>
+            <td>Cliente</td>
+            <td> </td>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in parametros.listadomercaderia %}  
+            <tr>
+            
+                <td> {{ item.Planta}}</td>
+                <td> {{ item.Color}}</td>
+                <td> {{ item.Especie}}</td>
+                <td> <input id="{{'inputStock'~item.idplanta}}" name="{{'inputStock'~loop.index}}" class="inputVenta" type="number" value="{{item.Stock}}"/></td>
+                <td> <input id="{{'inputMonto'~item.idplanta}}" name="{{'inputMonto'~loop.index}}" class="inputVenta" type="text" value="{{item.Stock * item.Precio}}"/></td>
+                <td>
+                    <select id="{{'selectCliente'~loop.index}}">
+                            <option value="0">Ninguno</option>
+                     {% for cliente in parametros.listadoclientes %} 
+                            <option value="{{cliente.idcliente}}">{{cliente.apellido ~ ', ' ~ cliente.nombre}}</option>          
+                     {% endfor %}        
+                    </select> 
+                        
+                </td>
+            {% if parametros.idsocioinquilino is defined and parametros.idsocioinquilino==false and parametros.perfilsocioinquilino==false %}
+                <td><button id="{{'botonVenta'~item.idplanta}}" name="{{'botonVenta'~loop.index}}" class="botonVenta" onclick="verificarStock('{{home}}venta/venderplantasocioinquilino/{{item.idplanta}}/{{item.idespecie}}/{{item.idcolor}}','{{item.idplanta}}','{{loop.index}}');">VENDER</button></td> 
+            {%else %}
+                <td><button id="{{'botonVenta'~item.idplanta}}" name="{{'botonVenta'~loop.index}}" class="botonVenta" onclick="verificarStock('{{home}}venta/venderplantaadmin/{{item.idplanta}}/{{item.idespecie}}/{{item.idcolor}}/{{parametros.idsocioinquilino}}/{{parametros.perfilsocioinquilino}}','{{item.idplanta}}','{{loop.index}}');">VENDER</button></td> 
+            {% endif %}
+            </tr>
+
+        {% endfor %}  
+
+
+        </tbody>
+    </table>
+
+

@@ -1,0 +1,64 @@
+{# empty Twig template #}
+
+    <noscript><p>Para el correcto funcionamiento debe tener el soporte de javascript habilitado</p></noscript>
+
+    <table>
+
+         {% if logueado is defined and logueado=="autenticado"%}              
+           {% if tipoperfil is defined and tipoperfil== "administrador" %}    
+{#{%if parametros.listadoclientes|length > 0%}
+                {#{% if  parametros.listadoclientes is defined  and parametros.listadoclientes|length >0   %}   #} 
+     <thead>
+        <tr>
+            <th COLSPAN=9> LISTADO DE CLIENTES </th>
+        </tr>
+
+        <tr>
+       
+            
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>condImpositiva</td>
+            <td>Mail</td>
+            <td>Direecion </td>
+            <td>Razon social  </td>
+            <td>Cuit </td>
+            <td> </td>
+            <td> </td>
+
+
+        </tr>
+</thead>
+<tbody>
+                 {% for cliente in parametros.listadoclientes  %}  
+        <tr>
+            <td> {{ cliente.nombre}}</td>
+            <td> {{ cliente.apellido}}</td>
+            <td> {{ cliente.condimpositiva}}</td>
+            <td> {{ cliente.mail}}</td>
+            <td> {{ cliente.direccion}}</td>
+            <td> {{ cliente.razonsocial}}</td>
+            <td> {{ cliente.cuit}}</td>
+            <td> <a href="editarcliente/{{cliente.idcliente}}"><img title="editar cliente" src="{{ruta_img~"editar.png"}}" alt=""/></a></td>
+          
+            <td> <a href="eliminarcliente/{{cliente.idcliente}}"><img title="eliminar cliente" src="{{ruta_img~"eliminar.png"}}" alt=""/></a> </td>
+
+        </tr>
+           {% endfor %}     
+</tbody>
+    </table>
+ 
+    <a href="altacliente">
+        <img  id="imagenadd" title="Agregar cliente" src="{{ruta_img~"add.png"}}" alt=""/>
+      </a>
+    
+   <input name="prueba" id="prueba" type="hidden" value="{{parametros.datos.latitud}}">
+    
+   <input name="prueba1" id="prueba1" type="hidden" value="{{parametros.datos.longitud}}"> 
+
+            {%endif %}    
+ {%endif %} 
+   
+      
+    
+              

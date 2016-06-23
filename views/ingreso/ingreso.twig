@@ -1,0 +1,130 @@
+<div class="body-contain">
+    <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+
+    <fieldset>
+
+
+        <form name="formingreso" method="POST"> 
+
+            <input type="hidden"  value="2" name="enviar" />
+            <label>Cantidad de ingresos: </label>
+            <select id="combocanting" name="combocanting" class="combosIngreso">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <p class="tituloRegistro">INGRESOS</p>
+
+            <div id="divingreso1">
+                <p> <label>Seleccione especie:</label>   <SELECT id="comboespecies" class="combosIngreso"   name="comboespecies" SIZE=1 > 
+                        <option value="ninguna">Seleccione una especie</option>
+                   {%for especie in parametros.listadoespecies%}  
+                        <option value="{{especie.idespecie}}">{{especie.nombre}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+
+
+                <p><label id="lcomboplantas">Seleccione ejemplar:</label><SELECT id="comboplantas" class="combosIngreso" onchange="enableInputColor(this.value)" class="comboBoxes"  name="comboplantas" SIZE=1 >
+
+
+                    </SELECT> </p> 
+
+
+                <p> <label>Seleccione color:</label>   <SELECT id="combocolores" class="combosIngreso"  class="comboBoxes" name="combocolores" SIZE=1 > 
+
+                   {%for color in parametros.listadocolores%}  
+                        <option value="{{color.idcolor}}">{{color.color}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+                <p><label>Ingrese cantidad:</label> <input type="text" class="combosIngreso" required="required"  placeholder="Ingrese una cantidad" name="cantidadingresada"  id="cantidadingresada" value="0"  /> </p>
+
+
+
+            </div>
+
+
+
+            <div id="divingreso2" class="divingreso">
+
+                <p class="tituloRegistro">--------------------------------------------------------------------</p>
+
+                <p> <label>Seleccione especie:</label>   <SELECT id="comboespecies2" class="combosIngreso"   name="comboespecies2" SIZE=1 > 
+                        <option value="ninguna">Seleccione una especie</option>
+                   {%for especie in parametros.listadoespecies%}  
+                        <option value="{{especie.idespecie}}">{{especie.nombre}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+
+
+                <p><label id="lcomboplantas2">Seleccione ejemplar:</label><SELECT id="comboplantas2" class="combosIngreso" onchange="enableInputColor(this.value)" class="comboBoxes"  name="comboplantas2" SIZE=1 >
+
+
+                    </SELECT> </p> 
+
+
+                <p> <label>Seleccione color:</label>   <SELECT id="combocolores2" class="combosIngreso"  class="comboBoxes" name="combocolores2" SIZE=1 > 
+
+                   {%for color in parametros.listadocolores%}  
+                        <option value="{{color.idcolor}}">{{color.color}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+                <p><label>Ingrese cantidad:</label> <input type="text" class="combosIngreso"  required="required" placeholder="Ingrese una cantidad" name="cantidadingresada2"  id="cantidadingresada" value="0"  /> </p>
+
+
+            </div>
+
+
+
+            <div id="divingreso3" class="divingreso">
+
+                <p class="tituloRegistro">--------------------------------------------------------------------</p>
+
+                <p> <label>Seleccione especie:</label>   <SELECT id="comboespecies3" class="combosIngreso"   name="comboespecies3" SIZE=1 > 
+                        <option value="ninguna">Seleccione una especie</option>
+                   {%for especie in parametros.listadoespecies%}  
+                        <option value="{{especie.idespecie}}">{{especie.nombre}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+
+
+                <p><label id="lcomboplantas3">Seleccione ejemplar:</label><SELECT id="comboplantas3" class="combosIngreso" onchange="enableInputColor(this.value)" class="comboBoxes"  name="comboplantas3" SIZE=1 >
+
+
+                    </SELECT> </p> 
+
+
+                <p> <label>Seleccione color:</label>   <SELECT id="combocolores3" class="combosIngreso"  class="comboBoxes" name="combocolores3" SIZE=1 > 
+
+                   {%for color in parametros.listadocolores%}  
+                        <option value="{{color.idcolor}}">{{color.color}}</option>
+                   {%endfor%}     
+
+                    </SELECT> </p>
+
+                <p><label>Ingrese cantidad:</label> <input type="text" class="combosIngreso"  placeholder="Ingrese una cantidad" name="cantidadingresada3" required="required" id="cantidadingresada" value="0"  /> </p>
+
+            </div>
+
+
+            <button type="submit">INGRESAR</button>
+
+        </form>   
+
+                   {%if parametros.mensaje is defined%}
+        <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+
+    </fieldset>
+
+</div>

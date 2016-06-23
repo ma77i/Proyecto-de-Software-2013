@@ -1,0 +1,75 @@
+{# empty Twig template #}
+<div class="body-contain">
+    <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+    <fieldset>
+        <legend>Editar Socio</legend>
+
+        <form name="formeditar"  method="POST"> 
+            <input type="hidden" value="1" name="guardar" />
+            <p> <label>Nombre:</label> <input type="text" name="nombre"  id="nombre" value="{{parametros.datossocio.nombre}}"/> </p>
+
+            <p><label> Apellido:</label> <input type="text" name="apellido" id="apellido" value="{{parametros.datossocio.apellido}}"/> </p>
+
+            <p><label> Usuario:</label> <input type="text" name="usuario" id="usuario" value="{{parametros.datossocio.usuario}}"/> </p>
+
+            <p><label> Clave:</label> <input type="text" name="clave" id="clave" value="{{parametros.datossocio.clave}}"/> </p>
+
+
+            <p> <label>Tipo de perfil:</label>   <SELECT  id="comboperfiles" name="comboperfil" SIZE=1 > 
+                    
+                         {%for tipoperfil in parametros.listadoperfiles%}  
+                    <option value="{{tipoperfil.idperfil}}"{% if tipoperfil.idperfil == parametros.datossocio.idperfil%}selected="selected" {% endif %}> 
+
+                          {{tipoperfil.perfil}}
+                    </option>
+                         {%endfor%}     
+
+                </SELECT> </p>
+                
+            <p><label> CUIT:</label> <input type="text"    name="cuit"  id="cuit" value="{{parametros.datossocio.cuit}}"/> </p>
+
+            <p><label>Mail:</label> <input type="text"  name="correo"  id="correo" value="{{parametros.datossocio.mail}}"  /> </p>
+
+            <p><label>Direccion:</label> <input type="text" name="domicilio"  id="domicilio" value="{{parametros.datossocio.direccion}}"  /> </p>
+
+            <p><label> Razon social:</label> <input type="text"  name="rsocial"  id="rsocial" value="{{parametros.datossocio.razonsocial}}"/> </p>
+            
+            <input type="hidden" name="latitud"  id="latitud" value="{{parametros.datossocio.latitud}}"/>
+            
+            <input type="hidden" name="longitud"  id="longitud" value="{{parametros.datossocio.longitud}}"/>
+            
+            {%if parametros.listadoayudantes is defined and parametros.listadoayudantes|length >0 %}
+                                     
+                   {% for ayudante in parametros.listadoayudantes  %}  
+                        <p class="tituloRegistro">{{'Ayudante '~loop.index}} </p>
+                        <input type="hidden" name="{{'idAyu'~loop.index}}" value="{{ayudante.idayudante}}" />
+                        <p><label>Nombre :</label> <input type="text" name="{{'nomAyu'~loop.index}}" value="{{ayudante.nombre }}"/> </p>
+                        <p><label>Apellido :</label> <input type="text" name="{{'apeAyu'~loop.index}}" value="{{ayudante.apellido }}"/> </p>
+                        <p><label>DNI :</label> <input type="text" name="{{'dniAyu'~loop.index}}" value="{{ayudante.dni}}"/> </p>
+                        <p><label>Usuario :</label> <input type="text" name="{{'usuarioAyu'~loop.index}}"  value="{{ayudante.usuario }}"/> </p>
+                        <p><label>Clave :</label> <input type="text" name="{{'claveAyu'~loop.index}}"  value="{{ayudante.clave}}"/> </p>
+                        
+                         
+                  {%endfor%}
+            
+
+                   
+            
+            
+            {% endif %}
+                        
+             <div id="map"></div>           
+
+            <button type="submit"  > Guardar Cambios</button>
+            <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}admin/socios'"/>       
+
+
+
+        </form>   
+
+                  {%if parametros.mensaje is defined%}
+        <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+
+    </fieldset>
+</div>

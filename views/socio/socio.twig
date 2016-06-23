@@ -1,0 +1,44 @@
+  {% if logueado is defined and logueado=="autenticado"%}              
+      {% if tipoperfil is defined and tipoperfil== "socio" %}    
+
+
+<h3>HISTORIAL DE INGRESOS</h3>
+
+<table>
+
+    <thead>
+        <tr>
+            <td>Fecha</td>
+            <td>Hora</td>
+            <td>Flor</td>
+            <td>Color</td>
+            <td>Especie</td>
+            <td>Cantidad ingresada</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ingreso in parametros.ingresosSocio %}  
+        <tr>
+            <td> {{ ingreso.Fecha}}</td>
+            <td> {{ ingreso.Hora}}</td>
+            <td> {{ ingreso.Planta}}</td>
+            <td> {{ ingreso.Color}}</td>
+            <td> {{ ingreso.Especie}}</td>
+            <td> {{ ingreso.Cantidad}}</td>
+            <td> <a href="{{home}}ingreso/editaringreso/{{ingreso.idIngreso}}"><img title="editaringreso" alt="editar" src="{{ruta_img~"editar.png"}}"/></a></td>
+            <td> <a href="{{home}}ingreso/eliminaringreso/{{ingreso.idIngreso}}"><img title="eliminaringreso" alt="eliminar" src="{{ruta_img~"eliminar.png"}}"/></a> </td>
+
+        </tr>
+        
+        {% endfor %}  
+        
+           
+    </tbody>
+</table>
+
+<p>TOTAL INGRESADO (con ayudantes): {{parametros.TotalIngresosAyudantes + parametros.TotalIngresosSocio}}</p>
+
+       {%endif %}    
+    {%endif %} 

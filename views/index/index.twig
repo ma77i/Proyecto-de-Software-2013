@@ -1,0 +1,38 @@
+ {%if parametros.listadoFlores is defined%}
+
+<div class="body-contain">
+    <div class="tables">
+        {#<p>
+            <label for="search">
+                <strong>Enter keyword to search </strong>
+            </label>
+            <input type="text" id="search"/>
+            <label>e.g. bar, parking, tv</label>
+        </p>#}
+        <p><strong>LISTADO GENERAL </strong></p>
+        <table id="tblData" class="target">
+            <thead>
+                <tr>
+                    <th>Planta</th>
+                    <th>Especie</th>
+                    <th>Color</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for elem in parametros.listadoFlores%}
+                <tr>
+
+                    <td class="odd">{{elem.Planta}}</td>
+                    <td class="even">{{elem.Especie}}</td>
+                    <td class="odd">{{elem.Color}}</td>
+                    <td class="even">{{elem.Stock}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>   
+
+{%endif%}
+

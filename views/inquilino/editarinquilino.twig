@@ -1,0 +1,32 @@
+{# empty Twig template #}
+<div class="body-contain">
+                <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+                <fieldset>
+                      <legend>Editar Inquilino</legend>
+                 
+                    <form name="formeditar"  method="POST" action=""> 
+                            <input type="hidden" value="1" name="guardar" />
+                        <p> <label>Nombre:</label> <input type="text" name="nombre"  id="nombre" value="{{parametros.datosinquilino.nombre}}"/> </p>
+                        
+                        <p><label> Apellido:</label> <input type="text" name="apellido" id="apellido" value="{{parametros.datosinquilino.apellido}}"/> </p>
+                       
+                        <p><label> CUIT:</label> <input type="text"   name="cuit"  id="cuit" value="{{parametros.datosinquilino.cuit}}"/> </p>
+                       
+                        <p><label>Mail:</label> <input type="text"  name="correo"  id="correo" value="{{parametros.datosinquilino.mail}}"  /> </p>
+                       
+                        <p><label>Direccion:</label> <input type="text" name="domicilio"  id="domicilio" value="{{parametros.datosinquilino.direccion}}"  /> </p>
+                      
+                        <p><label> Razon social:</label> <input type="text"  name="rsocial"  id="rsocial" value="{{parametros.datosinquilino.razonsocial}}"/> </p>
+                        <button type="submit"  > Guardar Cambios</button>
+                         <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}inquilino/inquilino'"/>       
+                     
+             
+                   
+                    </form>   
+
+                  {%if parametros.mensaje is defined%}
+                    <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+                 
+                </fieldset>
+            </div>

@@ -1,0 +1,26 @@
+<div class="body-contain">
+    <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+    <fieldset>
+        <legend>Editar Ingreso</legend>
+
+        <form name="formeditar"  method="POST" > 
+            <input type="hidden" value="1" name="guardar" />
+            <p> <label>Cantidad:</label> <input type="text" name="cantidad"  id="cantidad" value="{{parametros.datosingreso.cantidad}}"/> </p>
+            <button type="submit"> Guardar Cambios</button>
+            {%if tipoperfil is defined and tipoperfil=='inquilino'%}
+            <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}inquilino'"/>       
+            {%endif%}
+            {%if tipoperfil is defined and tipoperfil=='socio'%}
+            <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}socio'"/>       
+            {%endif%}
+            {%if tipoperfil is defined and tipoperfil=='ayudante'%}
+            <input type="button" title="Volver" value="volver" onclick="window.location.href='{{home}}ayudante'"/>       
+            {%endif%}
+        </form>   
+
+                  {%if parametros.mensaje is defined%}
+        <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+
+    </fieldset>
+</div>

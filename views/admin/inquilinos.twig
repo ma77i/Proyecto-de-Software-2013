@@ -1,0 +1,57 @@
+{# empty Twig template #}
+<noscript><p>Para el correcto funcionamiento debe tener el soporte de javascript habilitado</p></noscript>
+
+    <table>
+
+         {% if logueado is defined and logueado=="autenticado"%}              
+           {% if tipoperfil is defined and tipoperfil== "administrador" %}    
+  <thead>
+        <tr>
+            <th COLSPAN=10> LISTADO DE INQUILINOS </th>
+        </tr>
+
+        <tr>
+       
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Usuario</td>
+            <td>Mail</td>
+            <td>Direccion </td>
+            <td>Razon social</td>
+            <td>Cuit </td>
+            <td>Perfil </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+  </thead>
+  <tbody>
+                 {% for inquilino in parametros.listadoinquilinos  %}  
+        <tr>
+            <td> {{ inquilino.nombre}}</td>
+            <td> {{ inquilino.apellido}}</td>
+            <td> {{ inquilino.usuario}}</td>
+            <td> {{inquilino.mail}}</td>
+            <td> {{ inquilino.direccion}}</td>
+            <td> {{ inquilino.razonsocial}}</td>
+            <td> {{ inquilino.cuit}}</td>
+            <td> {{ inquilino.perfil}}</td>
+            <td> <a href="editarinquilino/{{inquilino.idinquilino}}"><img title="editar inquilino" src="{{ruta_img~"editar.png"}}" alt=""/></a></td>
+          
+            <td> <a href="eliminarinquilino/{{inquilino.idinquilino}}"><img title="eliminar inquilino" src="{{ruta_img~"eliminar.png"}}" alt=""/></a> </td>
+
+        </tr>
+           {% endfor %}     
+  </tbody>
+    </table>
+     
+ 
+    <a href="altainquilino">
+        <img  id="imagenadd" title="Agregar inquilino" src="{{ruta_img~"add.png"}}" alt=""/>
+      </a>  
+            {%endif %}    
+    {%endif %} 
+   
+      
+    
+              
+

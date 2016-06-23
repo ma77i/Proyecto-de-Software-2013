@@ -1,0 +1,95 @@
+{# empty Twig template #}
+<div class="body-contain">
+    <!--   /*La etiqueta fieldset>se utiliza para agrupar elementos relacionados en un formulario. y dibuja una caja alrededor de los elementos relacionados. */-->
+    <fieldset>
+        <legend>Alta especie</legend>
+
+        <form name="formAlta" id="formuregistro" method="POST" action=""> 
+            <input type="hidden" value="2" name="enviar" />
+            <p> <label>Ingrese nombre de planta:</label> <input type="text" placeholder="Ingrese un nombre de planta" name="planta"  id="planta" value="" required/> </p>
+
+            <p><label> Ingrese Nombre Cientifico:</label> <input type="text" placeholder="Ingrese un nombre cientifico" name="nombrecientifico" id="ncientifico" value="" required/> </p>
+
+            <p><label> Ingrese un Habitat:</label> <input type="text"  placeholder="Ingrese habitat"  name="habitat" id="habitat" value="" required/> </p>
+
+            <p><label>Ingrese una Region:</label> <input type="text" placeholder="Ingrese una region" name="region"  id="region" value="" required /> </p>
+
+            <p><label> Ingrese una Epoca:</label> <input type="text" placeholder="Ingrese una epoca" name="epoca"  id="epoca" value="" required /> </p>
+
+    
+             <p><label> Seleccione una Color :</label>
+                <SELECT  id="seleccion_color" name="seleccion_color" SIZE=1"> 
+                    <option value="0">Seleccione una color </option>
+                        {% for color in parametros.colores %}
+                          <option value ="{{color.idcolor}}">
+                               {{color.color}}   
+                          </option>    
+                        {%endfor%}     
+
+                            
+
+	        </SELECT>
+             <p><input name="color" type="checkbox"  value="1" id="colorid" onClick="mostrarOcultarColor()">
+                 <input name="input_checked_color" id="input_checked_color" type="hidden" value="0">
+           <label>Ingrese Color </label>     
+                
+            <input  name="input_color" type="text" id="inputColor" placeholder="ingrese un color" title="input" ></p>   
+            
+            
+          
+            <p><label> Seleccione una especie :</label>
+                <SELECT  id="seleccion_especie" name="seleccion_especie" SIZE=1"> 
+                    <option value="0">Seleccione una especie </option>
+                        {% for especie in parametros.especies %}
+                          <option value ="{{especie.idespecie}}">
+                               {{especie.nombre}}   
+                          </option>    
+                        {%endfor%}     
+
+                            
+
+	        </SELECT>
+                
+            <p><input name="chkoir" type="checkbox"  value="1" id="chkoir" onClick=" mostrarOcultarEspecie()">
+                <input name="input_checked_especie" id="input_checked_especie" type="hidden" value="0">
+
+           <label>Ingrese especie </label>     
+                
+            <input  name="input_especie" type="text" id="inputEspecie" placeholder="ingrese una especie" title="input" ></p>     
+
+      
+            
+            
+           <div id="carga">    
+            
+                  
+
+              
+               
+               
+               
+           </div>     
+         
+            <p><label>Ingrese precio: </label> 
+            <input type="text" value="0" id="precio" name="precio" placeholder="Ingrese un precio"/></p>
+            
+            
+            
+            
+            
+            
+            
+            
+            <button type="submit"  > Registrar</button>
+            
+
+
+
+        </form>   
+
+                  {%if parametros.mensaje is defined%}
+        <div class="mensaje">     {{ parametros.mensaje }} </div>
+                    {%endif%}
+
+    </fieldset>
+</div>
